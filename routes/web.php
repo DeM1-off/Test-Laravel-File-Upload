@@ -1,6 +1,11 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ProjectController;
+use App\Http\Controllers\HouseController;
+use App\Http\Controllers\OfficeController;
+use App\Http\Controllers\ShopController;
+use App\Http\Controllers\CompanyController;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,13 +22,13 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::post('projects', [\App\Http\Controllers\ProjectController::class, 'store']);
+Route::post('projects', [ProjectController::class, 'store']);
 
-Route::get('houses/download/{house}', [\App\Http\Controllers\HouseController::class, 'download']);
-Route::resource('houses', \App\Http\Controllers\HouseController::class);
+Route::get('houses/download/{house}', [HouseController::class, 'download']);
+Route::resource('houses', HouseController::class);
 
-Route::resource('offices', \App\Http\Controllers\OfficeController::class);
+Route::resource('offices', OfficeController::class);
 
-Route::post('shops', [\App\Http\Controllers\ShopController::class, 'store']);
+Route::post('shops', [ShopController::class, 'store']);
 
-Route::resource('companies', \App\Http\Controllers\CompanyController::class);
+Route::resource('companies', CompanyController::class);
